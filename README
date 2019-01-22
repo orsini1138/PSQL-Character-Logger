@@ -1,0 +1,5 @@
+PSQL-CHARACTER-LOGGER
+
+This script requires you to have text copied into your clipboard before using (ctrl/cmd - c). 
+
+The characters from the text are then sorted by # of times used and fed into a PostgreSQL table in descending rank.
