@@ -7,7 +7,7 @@ import os, sys, pyperclip, time
 import psycopg2 as p2
 
 # set up connection with psql db
-con = p2.connect("dbname='' user='' host='' password=''")
+con = p2.connect("dbname='sample_db' user='postgres' host='' password=''")
 cur = con.cursor()
 
 #collect time for run length
@@ -51,7 +51,7 @@ for ch in clipboard:
 
 # write to table
 i = 1
-for key, value in sorted(chars.items()):
+for key, value in sorted(chars.items(), key=lambda x: x[1], reverse=True):
 	cur.execute(f"INSERT INTO keylog (rank, key, used) VALUES ('{i}', '{key}', '{int(value)}');")
 	con.commit()
 	i+=1
